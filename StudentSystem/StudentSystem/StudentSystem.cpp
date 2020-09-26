@@ -1,3 +1,5 @@
+//Because this assignment is very vague and because I find the structure of classes in C++ hard this code still has errors and might not be complete at all
+
 #include <iostream>
 #include <string>
 
@@ -9,6 +11,7 @@ private:
     int studentNumber;
 public:
     course courses[];
+    void signUpForCourse();
 };
 
 class course {
@@ -17,7 +20,7 @@ private:
     student students[];
 public:
     string courseName;
-    string teachers[];
+    teacher teachers[];
 };
 
 class teacher {
@@ -25,6 +28,17 @@ private:
     string teacherName;
 public:
     course courses[];
+    void GiveCourse();
+};
+
+class System {
+private:
+public:
+    course courses[];
+    student students[];
+    teacher teachers[];
+
+    void generateLessons();
 };
 
 int main()
