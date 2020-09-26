@@ -15,10 +15,60 @@ int countDigit(long long n){
     return count;
 }
 
+int GetNumber(bool isHardMode) {
+    int answer;
+
+    if (isHardMode == true) {
+        cout << "What did simon say in total?" << endl;
+    }
+    else {
+        cout << "What did simon say?" << endl;
+    }
+
+    cin >> answer;
+
+    return answer;
+}
+
+bool CheckAnswer(int answer, int correctNumber) {
+    if (answer != correctNumber) {
+        cout << "it was: " << correctNumber << endl << endl;
+        if (correctNumber < 1000) {
+            system("CLS");
+            cout << "YOU SUCK!";
+        }
+        else {
+            system("CLS");
+            cout << "You died, your score is  " << countDigit(correctNumber) << endl;
+        }
+        return false;
+    }
+    return true;
+}
+
+int GenerateRandom(int number) {
+    int add;
+    add = rand() % 9 + 1;
+    number = number * 10 + add;
+    return number;
+}
+
+void showNumber(int number, int showAmount, bool isHardMode) {
+    for (int i = 0; i < showAmount; i++) {
+        if (isHardMode == true) {
+            int add = number % 10;
+            cout << "Simon says: " << add << endl;
+        }
+        else {
+            cout << "Simon says: " << number << endl;
+        }
+    }
+}
+
 void playSimonSays(long long simonNumber, bool isHardMode) {
     int answer;
-    int add;
     int timer;
+    bool isCorrect;
 
     if (isHardMode == true) {
         timer = 1000;
@@ -27,44 +77,27 @@ void playSimonSays(long long simonNumber, bool isHardMode) {
         timer = 2000;
     }
 
+    simonNumber = GenerateRandom(simonNumber);
     //Get random number (and add it to the previous number)
-    srand((unsigned int)time(NULL));
-    add = rand() % 9 + 1; 
-    simonNumber = simonNumber * 10 + add;
+    
 
     system("CLS"); //clear screen
 
-    if (isHardMode == true) { 
-        cout << "Simon says: " << add << endl; 
-    }
-    else { 
-        cout << "Simon says: " << simonNumber << endl; 
-    }
-    
-    this_thread::sleep_for(chrono::milliseconds(timer)); //Pause game to read number
-    system("CLS");
-    if (isHardMode == true) { 
-        cout << "What did simon say in total?" << endl; 
-    }
-    else { 
-        cout << "What did simon say?" << endl; 
-    }
+    showNumber(simonNumber, 1, isHardMode);
 
-    cin >> answer;
+    this_thread::sleep_for(chrono::milliseconds(timer));
+
+    system("CLS");
+    
+    answer = GetNumber(isHardMode);
 
     //Get score
-    if (answer != simonNumber) {
-        cout << "it was: " << simonNumber << endl << endl;
-        if (simonNumber < 100) { 
-            cout << "YOU SUCK!"; 
-        }
-        else { 
-            cout << "You died, your score is  " << countDigit(simonNumber); 
-        }
-    }
+    isCorrect = CheckAnswer(answer, simonNumber);
 
-    //Go to next number
-    else playSimonSays(simonNumber, isHardMode);
+    if (isCorrect) {
+        //Go to next number
+        playSimonSays(simonNumber, isHardMode);
+    }
 }
 
 int main()
@@ -73,7 +106,9 @@ int main()
     char question;
     char diffuculty;
     bool isHardMode;
+    int answer;
 
+    srand(time(NULL));
 
     cout << "Start game? (Y/N)" << endl;
     cin >> question;
@@ -99,7 +134,16 @@ int main()
         isHardMode = false; 
     }
 
-    //Start program for the game
+    for (int i = 0; i < 3; i++) {
+        simonSays = GenerateRandom(simonSays);
+    }
+
+    cout << "Simon says: " << simonSays << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    answer = GetNumber(isHardMode);
+    CheckAnswer(answer, simonSays);
+
+    //Start program for the rest of the game
     playSimonSays(simonSays, isHardMode);
 
     return 0;
