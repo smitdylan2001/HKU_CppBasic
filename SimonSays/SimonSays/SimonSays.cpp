@@ -2,8 +2,13 @@
 #include <stdlib.h>
 #include <chrono>
 #include <thread>
+#include "SimonSays.h"
 
-using namespace std;
+int answer;
+bool isHardMode;
+int timer;
+bool isCorrect;
+int simonNumber;
 
 //count how many numbers are in the integer
 int countDigit(long long n){
@@ -15,31 +20,29 @@ int countDigit(long long n){
     return count;
 }
 
-int getNumber(bool isHardMode) {
-    int answer;
-
+int getNumber() {
     if (isHardMode == true) {
-        cout << "What did simon say in total?" << endl;
+        std::cout << "What did simon say in total?" << std::endl;
     }
     else {
-        cout << "What did simon say?" << endl;
+        std::cout << "What did simon say?" << std::endl;
     }
 
-    cin >> answer;
+    std::cin >> answer;
 
     return answer;
 }
 
 bool checkAnswer(int answer, int correctNumber) {
     if (answer != correctNumber) {
-        cout << "it was: " << correctNumber << endl << endl;
+        std::cout << "it was: " << correctNumber << std::endl << std::endl;
         if (correctNumber < 1000) {
             system("CLS");
-            cout << "YOU SUCK!";
+            std::cout << "YOU SUCK!";
         }
         else {
             system("CLS");
-            cout << "You died, your score is  " << countDigit(correctNumber) << endl;
+            std::cout << "You died, your score is  " << countDigit(correctNumber) << std::endl;
         }
         return false;
     }
@@ -53,98 +56,84 @@ int generateRandom(int number) {
     return number;
 }
 
-void showNumber(int number, int showAmount, bool isHardMode) {
+void showNumber(int number, int showAmount) {
     for (int i = 0; i < showAmount; i++) {
         if (isHardMode == true) {
             int add = number % 10;
-            cout << "Simon says: " << add << endl;
+            std::cout << "Simon says: " << add << std::endl;
         }
         else {
-            cout << "Simon says: " << number << endl;
+            std::cout << "Simon says: " << number << std::endl;
         }
     }
 }
 
-void playSimonSays(long long simonNumber, bool isHardMode) {
-    int answer;
-    int timer;
-    bool isCorrect;
-
-    if (isHardMode == true) {
-        timer = 1000;
-    }
-    else {
-        timer = 2000;
-    }
-
+void playSimonSays() {
     simonNumber = generateRandom(simonNumber);
     //Get random number (and add it to the previous number)
     
-
     system("CLS"); //clear screen
 
-    showNumber(simonNumber, 1, isHardMode);
-
-    this_thread::sleep_for(chrono::milliseconds(timer));
+    showNumber(simonNumber, 1);
+    std::this_thread::sleep_for(std::chrono::milliseconds(timer));
 
     system("CLS");
     
-    answer = getNumber(isHardMode);
+    answer = getNumber();
 
     //Get score
     isCorrect = checkAnswer(answer, simonNumber);
 
     if (isCorrect) {
         //Go to next number
-        playSimonSays(simonNumber, isHardMode);
+        playSimonSays();
     }
 }
 
 int main()
 {
-    long long simonSays = 0;
     char question;
     char diffuculty;
-    bool isHardMode;
-    int answer;
 
     srand(time(NULL));
 
-    cout << "Start game? (Y/N)" << endl;
-    cin >> question;
+    std::cout << "Start game? (Y/N)" << std::endl;
+    std::cin >> question;
 
     //stop game when not wanting to play
     if (question == 'n' || question == 'N') {
         system("CLS");
-        cout << "Smell ya later";
-        this_thread::sleep_for(chrono::milliseconds(2000));
+        std::cout << "Smell ya later";
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         system("CLS");
-        cout << "NERD";
+        std::cout << "NERD";
         return 0;
     }
 
-    cout << "Hard mode? (Y/N)" << endl;
-    cin >> diffuculty;
+    std::cout << "Hard mode? (Y/N)" << std::endl;
+    std::cin >> diffuculty;
 
     //Change diffuculty
     if (diffuculty == 'y' || diffuculty == 'Y') { 
         isHardMode = true; 
+        timer = 1000;
     }
     else { 
         isHardMode = false; 
+        timer = 2000;
     }
 
     for (int i = 0; i < 3; i++) {
-        simonSays = generateRandom(simonSays);
+        simonNumber = generateRandom(simonNumber);
     }
 
-    cout << "Simon says: " << simonSays << endl;
-    this_thread::sleep_for(chrono::milliseconds(2000));
-    answer = getNumber(isHardMode);
-    checkAnswer(answer, simonSays);
+    std::cout << "Simon says: " << simonNumber << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    answer = getNumber();
+    checkAnswer(answer, simonNumber);
 
     //Start program for the rest of the game
-    playSimonSays(simonSays, isHardMode);
+    playSimonSays();
 
     return 0;
 }
