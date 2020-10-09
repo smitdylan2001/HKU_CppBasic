@@ -8,7 +8,7 @@ public:
 
 private:
 	std::string beschikbareKoffie;
-	int totaleWaarde;
+	double totaleWaarde;
 	bool kanGoedkopeKoffie;
 	bool kanNormaleKoffie;
 	bool kanPremiumKoffie;
