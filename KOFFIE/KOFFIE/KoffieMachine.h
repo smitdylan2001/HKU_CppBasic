@@ -3,11 +3,14 @@
 
 class KoffieMachine{
 public:
-	int totaleWaarde;
-	std::list<std::string> beschikbareKoffie;
-	std::list<std::string> welkeKoffie(int muntWaarde, bool isKoffieMunt);
+	std::string welkeKoffie(double muntWaarde, bool isKoffieMunt);
+	double getInsertedValue();
 
 private:
-
+	std::string beschikbareKoffie;
+	int totaleWaarde;
+	bool kanGoedkopeKoffie;
+	bool kanNormaleKoffie;
+	bool kanPremiumKoffie;
 };
 

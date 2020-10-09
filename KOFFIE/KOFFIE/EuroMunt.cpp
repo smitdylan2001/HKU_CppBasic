@@ -1,5 +1,6 @@
 #include "EuroMunt.h"
 
-double value = 1.00;
-bool isKoffiemunt = false;
+EuroMunt::EuroMunt(double value, bool isKoffieMunt) : Munt(value, isKoffieMunt) {
+
+}
 

@@ -1,40 +1,27 @@
 #include "KoffieMachine.h"
 
-bool isFilled = false;
-bool kanGoedkopeKoffie;
-bool kanNormaleKoffie;
-bool kanPremiumKoffie;
-int totaleWaarde;
-std::list<std::string> beschikbareKoffie;
-
-std::list<std::string> KoffieMachine::welkeKoffie(int muntWaarde, bool isKoffieMunt)
+std::string KoffieMachine::welkeKoffie(double muntWaarde, bool isKoffieMunt)
 {
     totaleWaarde += muntWaarde;
     
-    if (isKoffieMunt || totaleWaarde > 0.50) {
+    if (isKoffieMunt || totaleWaarde >= 0.50) {
         kanGoedkopeKoffie = true;
-        if (!isFilled) {
-            beschikbareKoffie.assign(1, "goedkope koffie");
-            isFilled = true;
-        }
+        beschikbareKoffie = "goedkope koffie";
     }
 
-    if (isKoffieMunt || totaleWaarde > 1) {
-        isFilled = false;
+    if (isKoffieMunt || totaleWaarde >= 1) {
         kanNormaleKoffie = true;
-        if (!isFilled) {
-            beschikbareKoffie.assign(1, "normale koffie");
-            isFilled = true;
-        }
+        beschikbareKoffie = "normale koffie";
     }
 
-    if (isKoffieMunt || totaleWaarde > 1.50) {
+    if (isKoffieMunt || totaleWaarde >= 1.50) {
         kanPremiumKoffie = true;
-        if (!isFilled) {
-            beschikbareKoffie.assign(1, "dure koffie");
-            isFilled = true;
-        }
+        beschikbareKoffie = "dure koffie";
     }
 
     return beschikbareKoffie;
+}
+
+double KoffieMachine::getInsertedValue() {
+    return totaleWaarde;
 }

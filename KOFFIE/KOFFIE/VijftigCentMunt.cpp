@@ -1,4 +1,5 @@
 #include "VijftigCentMunt.h"
 
-double value = 0.50;
-bool isKoffiemunt = false;
+VijftigCentMunt::VijftigCentMunt(double value, bool isKoffieMunt) : Munt(value, isKoffieMunt) {
+
+}

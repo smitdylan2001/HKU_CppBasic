@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EuroMunt.cpp" />
     <ClCompile Include="KOFFIE.cpp" />
+    <ClCompile Include="KoffieMachine.cpp" />
+    <ClCompile Include="KoffieMunt.cpp" />
+    <ClCompile Include="Munt.cpp" />
+    <ClCompile Include="VijftigCentMunt.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EuroMunt.h" />
+    <ClInclude Include="KoffieMachine.h" />
+    <ClInclude Include="KoffieMunt.h" />
+    <ClInclude Include="Munt.h" />
+    <ClInclude Include="VijftigCentMunt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

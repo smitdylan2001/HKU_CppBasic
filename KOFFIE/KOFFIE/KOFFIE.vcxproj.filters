@@ -18,5 +18,37 @@
     <ClCompile Include="KOFFIE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Munt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EuroMunt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VijftigCentMunt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KoffieMunt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KoffieMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Munt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EuroMunt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VijftigCentMunt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KoffieMunt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KoffieMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

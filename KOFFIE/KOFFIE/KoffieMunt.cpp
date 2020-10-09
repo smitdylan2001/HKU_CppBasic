@@ -1,4 +1,5 @@
 #include "KoffieMunt.h"
 
-double value = 0.00;
-bool isKoffiemunt = true;
+KoffieMunt::KoffieMunt(double value, bool isKoffieMunt) : Munt(value, isKoffieMunt) {
+
+}
