@@ -8,7 +8,7 @@ public:
 	void returnBook(Book* book);
 	int getLendedAmount();
 private:
-	std::list<Book> lendedBooks;
+	std::list<Book> lendedBooks; //TODO: Fix lists
 	int lendedAmount;
 };
 
