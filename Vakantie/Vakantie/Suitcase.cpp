@@ -7,8 +7,10 @@ Suitcase::Suitcase(std::string color) {
 std::string Suitcase::getColor() {
 	return color;
 }
+std::string Suitcase::getSockColor() {
+	return sock->getColor();
+}
 
-Socks Suitcase::addSocks(Socks socks) {
+void Suitcase::addSocks(Socks socks) {
 
-	return socks;
 }

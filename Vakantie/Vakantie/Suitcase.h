@@ -7,8 +7,10 @@ class Suitcase
 public:
 	Suitcase(std::string color);
 	std::string getColor();
-	Socks addSocks(Socks socks);
+	std::string getSockColor();
+	void addSocks(Socks socks);
 private:
 	std::string color = "gray";
+	Socks* sock = nullptr;
 };
 
