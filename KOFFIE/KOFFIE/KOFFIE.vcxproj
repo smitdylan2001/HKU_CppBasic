@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EuroMunt.cpp" />
-    <ClCompile Include="KOFFIE.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="KoffieMachine.cpp" />
     <ClCompile Include="KoffieMunt.cpp" />
     <ClCompile Include="Munt.cpp" />

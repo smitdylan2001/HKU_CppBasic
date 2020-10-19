@@ -142,7 +142,7 @@
     <ClCompile Include="Docent.cpp" />
     <ClCompile Include="Persoon.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="StudentsInheritence.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Docent.h" />

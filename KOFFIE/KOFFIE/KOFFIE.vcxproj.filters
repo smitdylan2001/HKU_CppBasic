@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="KOFFIE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Munt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -31,6 +28,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="KoffieMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
