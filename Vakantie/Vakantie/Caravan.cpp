@@ -1,15 +1,25 @@
 #include "caravan.h"
 
 Caravan::Caravan(std::string color) {
-	std::cout << "Caravan: ctor: '" << this->color << "' adres " << this << std::endl;
 	this->color = color;
 }
 
-Caravan::Caravan(const Caravan& newCaravan)
+Caravan::Caravan(const Caravan& otherCaravan)
 {
-	std::cout << "Caravan: cctor: '" << this->color << "' adres " << this << std::endl;
-	if (this == &newCaravan) return;
-	suitcase = new Suitcase(*newCaravan.suitcase);
+	if (this == &otherCaravan) return;
+	this->color = otherCaravan.color;
+	suitcase = new Suitcase(*otherCaravan.suitcase);
+}
+
+Caravan& Caravan::operator=(const Caravan& otherCaravan)
+{
+	std::cout << "0";
+	if (this == &otherCaravan) return *this;
+	std::cout << "1";
+	delete suitcase;
+	this->color = otherCaravan.color;
+	suitcase = new Suitcase(*otherCaravan.suitcase);
+	return *this;
 }
 
 Caravan::~Caravan() {
@@ -20,12 +30,12 @@ std::string Caravan::getColor() {
 	return color;
 }
 
-Suitcase Caravan::addSuitcase(Suitcase suitcase){
-
-
-	return suitcase;
+void Caravan::addSuitcase(Suitcase& suitcase){
+	this->suitcase = &suitcase;
 }
 
 void Caravan::showContent() {
-	std::cout << suitcase->getColor() << " and " << suitcase->getSockColor();
+		std::cout << "caravan color: " << this->getColor() << std::endl 
+			<< "suitcase color: " << suitcase->getColor() << std::endl 
+			<< "sock color: " << suitcase->getSockColor() << std::endl;
 }

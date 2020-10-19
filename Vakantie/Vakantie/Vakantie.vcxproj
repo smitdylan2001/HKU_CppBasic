@@ -142,7 +142,7 @@
     <ClCompile Include="caravan.cpp" />
     <ClCompile Include="Socks.cpp" />
     <ClCompile Include="Suitcase.cpp" />
-    <ClCompile Include="Vakantie.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="caravan.h" />

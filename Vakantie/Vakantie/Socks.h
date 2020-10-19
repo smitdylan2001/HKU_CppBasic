@@ -6,8 +6,8 @@ class Socks
 {
 public:
 	Socks(std::string color);
-	Socks(const Socks& newSocks);
-	Socks& operator=(const Socks& newSocks);
+	Socks(const Socks& otherSocks);
+	Socks& operator=(const Socks& otherSocks);
 	virtual ~Socks();
 
 	std::string getColor();

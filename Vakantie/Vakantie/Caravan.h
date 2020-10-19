@@ -6,12 +6,12 @@ class Caravan
 {
 public:
 	Caravan(std::string color);
-	Caravan(const Caravan& newCaravan);
-	Caravan& operator=(const Caravan& newrCaravan);
+	Caravan(const Caravan& otherCaravan);
+	Caravan& operator=(const Caravan& otherCaravan);
 	virtual ~Caravan();
 
 	std::string getColor();
-	Suitcase addSuitcase(Suitcase suitcase);
+	void addSuitcase(Suitcase& suitcase);
 	void showContent();
 
 private:

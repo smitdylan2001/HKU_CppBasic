@@ -4,16 +4,16 @@ Socks::Socks(std::string color) {
 	this->color = color;
 }
 
-Socks::Socks(const Socks& newSocks)
+Socks::Socks(const Socks& otherSocks)
 {
-	if (this == &newSocks) return;
-	this->color = newSocks.color;
+	if (this == &otherSocks) return;
+	this->color = otherSocks.color;
 }
 
-Socks& Socks::operator=(const Socks& newSocks)
+Socks& Socks::operator=(const Socks& otherSocks)
 {
-	if (this == &newSocks) return *this;
-	this->color = newSocks.color;
+	if (this == &otherSocks) return *this;
+	this->color = otherSocks.color;
 	return *this;
 }
 
